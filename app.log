@@ -79,3 +79,51 @@
 2025-11-24 13:15:43,344 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
 2025-11-24 13:15:44,238 - DEBUG - https://api.lockncharge.io:443 "GET /v1/bays?tags=macbook HTTP/1.1" 200 3103
 2025-11-24 13:15:44,240 - INFO - [MAIN] Connection status: True
+2025-11-24 14:40:10,346 - INFO - [API] Initializing LocknChargeAPI.
+2025-11-24 14:40:10,346 - DEBUG - [AUTH] Loading local token.
+2025-11-24 14:40:10,346 - DEBUG - [AUTH] Token expired.
+2025-11-24 14:40:10,348 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
+2025-11-24 14:40:11,432 - DEBUG - https://api.lockncharge.io:443 "POST /v1/token HTTP/1.1" 201 319
+2025-11-24 14:40:11,434 - DEBUG - [AUTH] Token expires: 2025-11-24 15:00:11
+2025-11-24 14:40:11,435 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
+2025-11-24 14:40:12,330 - DEBUG - https://api.lockncharge.io:443 "GET /v1/stations/S-70:b3:d5:8f:92:ff-00000000898cee65 HTTP/1.1" 200 239
+2025-11-24 14:40:12,332 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
+2025-11-24 14:40:13,199 - DEBUG - https://api.lockncharge.io:443 "GET /v1/bays?tags=macbook HTTP/1.1" 200 3103
+2025-11-24 14:40:13,202 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
+2025-11-24 14:40:14,109 - DEBUG - https://api.lockncharge.io:443 "GET /v1/station-users/stationUser-1cf1129a-248b-4393-9a56-64a6a15d36c4 HTTP/1.1" 200 141
+2025-11-24 14:40:14,111 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
+2025-11-24 14:40:15,013 - DEBUG - https://api.lockncharge.io:443 "GET /v1/station-users/stationUser-f107b8c7-df72-417b-84f8-7de61b82ea0f HTTP/1.1" 200 123
+2025-11-24 14:40:15,015 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
+2025-11-24 14:40:15,890 - DEBUG - https://api.lockncharge.io:443 "GET /v1/station-users/stationUser-f107b8c7-df72-417b-84f8-7de61b82ea0f HTTP/1.1" 200 123
+2025-11-24 14:40:15,892 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
+2025-11-24 14:40:16,770 - DEBUG - https://api.lockncharge.io:443 "GET /v1/station-users/stationUser-1cf1129a-248b-4393-9a56-64a6a15d36c4 HTTP/1.1" 200 141
+2025-11-24 14:41:20,202 - INFO - [API] Initializing LocknChargeAPI.
+2025-11-24 14:41:20,203 - DEBUG - [AUTH] Loading local token.
+2025-11-24 14:41:20,210 - DEBUG - [AUTH] Token expires: 2025-11-24 15:00:11
+2025-11-24 14:41:20,212 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
+2025-11-24 14:41:20,863 - DEBUG - https://api.lockncharge.io:443 "GET /v1/stations/S-70:b3:d5:8f:92:ff-00000000898cee65 HTTP/1.1" 200 239
+2025-11-24 14:41:20,865 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
+2025-11-24 14:41:21,504 - DEBUG - https://api.lockncharge.io:443 "GET /v1/bays?tags=macbook HTTP/1.1" 200 3103
+2025-11-24 14:41:21,507 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
+2025-11-24 14:41:22,398 - DEBUG - https://api.lockncharge.io:443 "GET /v1/station-users/stationUser-1cf1129a-248b-4393-9a56-64a6a15d36c4 HTTP/1.1" 200 141
+2025-11-24 14:41:22,400 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
+2025-11-24 14:41:23,045 - DEBUG - https://api.lockncharge.io:443 "GET /v1/station-users/stationUser-f107b8c7-df72-417b-84f8-7de61b82ea0f HTTP/1.1" 200 123
+2025-11-24 14:41:23,047 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
+2025-11-24 14:41:24,043 - DEBUG - https://api.lockncharge.io:443 "GET /v1/station-users/stationUser-f107b8c7-df72-417b-84f8-7de61b82ea0f HTTP/1.1" 200 123
+2025-11-24 14:41:24,045 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
+2025-11-24 14:41:24,950 - DEBUG - https://api.lockncharge.io:443 "GET /v1/station-users/stationUser-1cf1129a-248b-4393-9a56-64a6a15d36c4 HTTP/1.1" 200 141
+2025-11-24 14:47:17,728 - INFO - [API] Initializing LocknChargeAPI.
+2025-11-24 14:47:17,728 - DEBUG - [AUTH] Loading local token.
+2025-11-24 14:47:17,728 - DEBUG - [AUTH] Token expires: 2025-11-24 15:00:11
+2025-11-24 14:47:17,730 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
+2025-11-24 14:47:18,645 - DEBUG - https://api.lockncharge.io:443 "GET /v1/stations/S-70:b3:d5:8f:92:ff-00000000898cee65 HTTP/1.1" 200 239
+2025-11-24 14:47:18,647 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
+2025-11-24 14:47:19,543 - DEBUG - https://api.lockncharge.io:443 "GET /v1/bays?tags=macbook HTTP/1.1" 200 3103
+2025-11-24 14:47:19,545 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
+2025-11-24 14:47:20,432 - DEBUG - https://api.lockncharge.io:443 "GET /v1/station-users/stationUser-1cf1129a-248b-4393-9a56-64a6a15d36c4 HTTP/1.1" 200 141
+2025-11-24 14:47:20,434 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
+2025-11-24 14:47:21,362 - DEBUG - https://api.lockncharge.io:443 "GET /v1/station-users/stationUser-f107b8c7-df72-417b-84f8-7de61b82ea0f HTTP/1.1" 200 123
+2025-11-24 14:47:21,364 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
+2025-11-24 14:47:22,286 - DEBUG - https://api.lockncharge.io:443 "GET /v1/station-users/stationUser-f107b8c7-df72-417b-84f8-7de61b82ea0f HTTP/1.1" 200 123
+2025-11-24 14:47:22,288 - DEBUG - Starting new HTTPS connection (1): api.lockncharge.io:443
+2025-11-24 14:47:23,175 - DEBUG - https://api.lockncharge.io:443 "GET /v1/station-users/stationUser-1cf1129a-248b-4393-9a56-64a6a15d36c4 HTTP/1.1" 200 141
