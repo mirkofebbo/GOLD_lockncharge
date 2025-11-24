@@ -46,7 +46,7 @@ class LocknChargeAPI:
         
         return data
     
-    def get_assigned_bay(self, bays:dict):
+    def get_assigned_bays(self, bays:dict):
         """ BAY JSON EXEMPLE
             {
                 "id": "S-70:b3:d5: 8f: 92:ff-00000000898cee65_B-1", 
@@ -60,8 +60,11 @@ class LocknChargeAPI:
                 "tags": ["macbook"]
             },
         """
-        assigned_bays:dict = {}
+        assigned_bays:list = []
         
         for bay in bays["items"]:
             if bay["assigned"]:
-                print(bay)
+                assigned_bays.append(bay)
+                   
+        return assigned_bays
+
