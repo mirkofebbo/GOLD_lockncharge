@@ -12,8 +12,8 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
-def save_json(data:dict, filename:str):
-    file_path:str = f"data/{filename}"
+def save_json(data:dict, file_name:str):
+    file_path:str = f"data/{file_name}"
     
     with open(file_path, 'w') as file:
         json.dump(data, file)
