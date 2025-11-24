@@ -20,20 +20,7 @@ class LocknChargeAPI:
         self.auth:LocknChargeAuth   = LocknChargeAuth(api_url, client_id, client_secret)
         self.token:str              = self.auth.get_token()
 
-    def get_connection_status(self):
-        # we can get alot of info from this call: id, name connected, firmwareVersion, update, lockdown, tags, nodeId
-        # But we are only interested to know if the locker is connected.
-        url:str = f'{self.url}stations/{self.id}'
-        headers:dict = {
-            'Accept': 'application/json',
-            'Authorization': f"Bearer {self.token}"
-        }
-
-        response:requests.Response = requests.get(url, headers=headers)
-        data:dict = response.json()
-        
-        return data["connected"]
-    
+    #==== FUNCTION TO MOVE ====
     def get_assigned_bays(self, bays:dict):
         """ BAY JSON EXEMPLE
             {
@@ -56,7 +43,41 @@ class LocknChargeAPI:
 
         return assigned_bays 
     
+    def get_current_users(self, assigned_bays:list):
+
+        current_users = []
+        user = {
+            "name": "",
+            "id": "",
+            "bay_id": "",
+
+        }
+        for bay in assigned_bays:
+            
+            user_id = bay["assignedUserId"]
+            user_info = self.get_user(user_id)
+            user["name"] = user_info["name"]
+            user["id"] = user_id
+            user["bay_id"] = bay["id"]
+
+            current_users.append(user)
+        return current_users
+        
     #==== API CALS ====
+    def get_connection_status(self):
+        # we can get alot of info from this call: id, name connected, firmwareVersion, update, lockdown, tags, nodeId
+        # But we are only interested to know if the locker is connected.
+        url:str = f'{self.url}stations/{self.id}'
+        headers:dict = {
+            'Accept': 'application/json',
+            'Authorization': f"Bearer {self.token}"
+        }
+
+        response:requests.Response = requests.get(url, headers=headers)
+        data:dict = response.json()
+        
+        return data["connected"]
+    
     def get_bays(self):
         url:str = f'{self.url}bays?tags=macbook'
         headers:dict = {
