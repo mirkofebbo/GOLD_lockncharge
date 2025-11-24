@@ -1,17 +1,6 @@
 import os   
-import logging
 from dotenv import load_dotenv
-from lockncharge_api.api import LocknChargeAPI
-
-LOG_FILE_NAME = 'app.log'
-
-logging.basicConfig(
-    level=logging.DEBUG,
-    filename=LOG_FILE_NAME,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-    )
-
-logger = logging.getLogger(__name__)
+from lockncharge_api.auth import LocknChargeAuth
 
 load_dotenv()
 
@@ -20,14 +9,12 @@ LOCKNCHARGE_ID              = os.getenv("LOCKNCHARGE_ID")
 LOCKNCHARGE_CLIENT_ID       = os.getenv("LOCKNCHARGE_CLIENT_ID")
 LOCKNCHARGE_CLIENT_SECRET   = os.getenv("LOCKNCHARGE_CLIENT_SECRET")
 
-api = LocknChargeAPI(LOCKNCHARGE_URL, LOCKNCHARGE_ID, LOCKNCHARGE_CLIENT_ID, LOCKNCHARGE_CLIENT_SECRET)
+auth = LocknChargeAuth(LOCKNCHARGE_URL, LOCKNCHARGE_CLIENT_ID, LOCKNCHARGE_CLIENT_SECRET)
+
 def main():
 
-    status:bool = api.get_connection_status()
-    bays:dict = api.get_bays()
-    api.get_assigned_bay(bays)
-    # print(bays)
-    logger.info(f"[MAIN] Connection status: {status}")
+    token:str = auth.get_token()
+    print(token)
     
 if __name__ == "__main__":
     main()
