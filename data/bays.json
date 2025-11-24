@@ -1,0 +1,178 @@
+{
+    "_links": {
+        "prev": "None",
+        "this": "/v1/bays?tags=macbook",
+        "next": "None"
+    },
+    "items": [
+        {
+            "id": "S-70:b3:d5: 8f: 92:ff-00000000898cee65_B-1",
+            "bayNumber": 1,
+            "stationId": "S-70:b3:d5: 8f: 92:ff-00000000898cee65",
+            "name": "Bay 1",
+            "locked": True,
+            "offline": False,
+            "assigned": False,
+            "assignedUserId": None,
+            "tags": [
+                "macbook"
+            ]
+        },
+        {
+            "id": "S-70:b3:d5: 8f: 92:ff-00000000898cee65_B-10",
+            "bayNumber": 10,
+            "stationId": "S-70:b3:d5: 8f: 92:ff-00000000898cee65",
+            "name": "Bay 10",
+            "locked": True,
+            "offline": False,
+            "assigned": False,
+            "assignedUserId": None,
+            "tags": [
+                "macbook"
+            ]
+        },
+        {
+            "id": "S-70:b3:d5: 8f: 92:ff-00000000898cee65_B-11",
+            "bayNumber": 11,
+            "stationId": "S-70:b3:d5: 8f: 92:ff-00000000898cee65",
+            "name": "Bay 11",
+            "locked": True,
+            "offline": False,
+            "assigned": False,
+            "assignedUserId": None,
+            "tags": [
+                "macbook"
+            ]
+        },
+        {
+            "id": "S-70:b3:d5: 8f: 92:ff-00000000898cee65_B-12",
+            "bayNumber": 12,
+            "stationId": "S-70:b3:d5: 8f: 92:ff-00000000898cee65",
+            "name": "Bay 12",
+            "locked": True,
+            "offline": False,
+            "assigned": False,
+            "assignedUserId": None,
+            "tags": [
+                "macbook"
+            ]
+        },
+        {
+            "id": "S-70:b3:d5: 8f: 92:ff-00000000898cee65_B-13",
+            "bayNumber": 13,
+            "stationId": "S-70:b3:d5: 8f: 92:ff-00000000898cee65",
+            "name": "Bay 13",
+            "locked": True,
+            "offline": False,
+            "assigned": False,
+            "assignedUserId": None,
+            "tags": [
+                "macbook"
+            ]
+        },
+        {
+            "id": "S-70:b3:d5: 8f: 92:ff-00000000898cee65_B-2",
+            "bayNumber": 2,
+            "stationId": "S-70:b3:d5: 8f: 92:ff-00000000898cee65",
+            "name": "Bay 2",
+            "locked": True,
+            "offline": False,
+            "assigned": False,
+            "assignedUserId": None,
+            "tags": [
+                "macbook"
+            ]
+        },
+        {
+            "id": "S-70:b3:d5: 8f: 92:ff-00000000898cee65_B-3",
+            "bayNumber": 3,
+            "stationId": "S-70:b3:d5: 8f: 92:ff-00000000898cee65",
+            "name": "Bay 3",
+            "locked": True,
+            "offline": False,
+            "assigned": False,
+            "assignedUserId": None,
+            "tags": [
+                "macbook"
+            ]
+        },
+        {
+            "id": "S-70:b3:d5: 8f: 92:ff-00000000898cee65_B-4",
+            "bayNumber": 4,
+            "stationId": "S-70:b3:d5: 8f: 92:ff-00000000898cee65",
+            "name": "Bay 4",
+            "locked": True,
+            "offline": False,
+            "assigned": False,
+            "assignedUserId": None,
+            "tags": [
+                "macbook"
+            ]
+        },
+        {
+            "id": "S-70:b3:d5: 8f: 92:ff-00000000898cee65_B-5",
+            "bayNumber": 5,
+            "stationId": "S-70:b3:d5: 8f: 92:ff-00000000898cee65",
+            "name": "Bay 5",
+            "locked": True,
+            "offline": False,
+            "assigned": True,
+            "assignedUserId": "stationUser-1cf1129a-248b-4393-9a56-64a6a15d36c4",
+            "tags": [
+                "macbook"
+            ]
+        },
+        {
+            "id": "S-70:b3:d5: 8f: 92:ff-00000000898cee65_B-6",
+            "bayNumber": 6,
+            "stationId": "S-70:b3:d5: 8f: 92:ff-00000000898cee65",
+            "name": "Bay 6",
+            "locked": True,
+            "offline": False,
+            "assigned": True,
+            "assignedUserId": "stationUser-f107b8c7-df72-417b-84f8-7de61b82ea0f",
+            "tags": [
+                "macbook"
+            ]
+        },
+        {
+            "id": "S-70:b3:d5: 8f: 92:ff-00000000898cee65_B-7",
+            "bayNumber": 7,
+            "stationId": "S-70:b3:d5: 8f: 92:ff-00000000898cee65",
+            "name": "Bay 7",
+            "locked": True,
+            "offline": False,
+            "assigned": True,
+            "assignedUserId": "stationUser-f107b8c7-df72-417b-84f8-7de61b82ea0f",
+            "tags": [
+                "macbook"
+            ]
+        },
+        {
+            "id": "S-70:b3:d5: 8f: 92:ff-00000000898cee65_B-8",
+            "bayNumber": 8,
+            "stationId": "S-70:b3:d5: 8f: 92:ff-00000000898cee65",
+            "name": "Bay 8",
+            "locked": True,
+            "offline": False,
+            "assigned": True,
+            "assignedUserId": "stationUser-1cf1129a-248b-4393-9a56-64a6a15d36c4",
+            "tags": [
+                "macbook"
+            ]
+        },
+        {
+            "id": "S-70:b3:d5: 8f: 92:ff-00000000898cee65_B-9",
+            "bayNumber": 9,
+            "stationId": "S-70:b3:d5: 8f: 92:ff-00000000898cee65",
+            "name": "Bay 9",
+            "locked": True,
+            "offline": False,
+            "assigned": False,
+            "assignedUserId": None,
+            "tags": [
+                "macbook"
+            ]
+        }
+    ]
+}
