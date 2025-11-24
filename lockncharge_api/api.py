@@ -33,5 +33,35 @@ class LocknChargeAPI:
         data:dict = response.json()
         
         return data["connected"]
+    
+    def get_bays(self):
+        url:str = f'{self.url}bays?tags=macbook'
+        headers:dict = {
+            'Accept': 'application/json',
+            'Authorization': f"Bearer {self.token}"
+        }
 
- 
+        response:requests.Response = requests.get(url, headers=headers)
+        data:dict = response.json()
+        
+        return data
+    
+    def get_assigned_bay(self, bays:dict):
+        """ BAY JSON EXEMPLE
+            {
+                "id": "S-70:b3:d5: 8f: 92:ff-00000000898cee65_B-1", 
+                "bayNumber": 1, 
+                "stationId": "S-70:b3:d5: 8f: 92:ff-00000000898cee65", 
+                "name": "Bay 1", 
+                "locked": True, 
+                "offline": False, 
+                "assigned": False, 
+                "assignedUserId": None, 
+                "tags": ["macbook"]
+            },
+        """
+        assigned_bays:dict = {}
+        
+        for bay in bays["items"]:
+            if bay["assigned"]:
+                print(bay)
