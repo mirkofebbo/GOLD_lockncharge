@@ -1,6 +1,17 @@
 import os   
+import logging
 from dotenv import load_dotenv
 from lockncharge_api.api import LocknChargeAPI
+
+LOG_FILE_NAME = 'app.log'
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    filename=LOG_FILE_NAME,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+    )
+
+logger = logging.getLogger(__name__)
 
 load_dotenv()
 
@@ -13,8 +24,8 @@ api = LocknChargeAPI(LOCKNCHARGE_URL, LOCKNCHARGE_ID, LOCKNCHARGE_CLIENT_ID, LOC
 def main():
 
     status:bool = api.get_connection_status()
-
-    print(status)
+    
+    logger.info(f"[MAIN] Connection status: {status}")
     
 if __name__ == "__main__":
     main()
