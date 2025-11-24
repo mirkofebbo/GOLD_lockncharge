@@ -1,14 +1,24 @@
 import requests
+import logging
 from lockncharge_api.auth import LocknChargeAuth
+
+LOG_FILE_NAME = 'app.log'
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    filename=LOG_FILE_NAME,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+    )
+
+logger = logging.getLogger(__name__)
 
 class LocknChargeAPI:
     def __init__(self, api_url: str, station_id:str, client_id:str, client_secret:str):
-        print('Started API')
+        logger.info("[API] Initializing LocknChargeAPI.")
         self.url:str                = api_url
         self.id:str                 = station_id
         self.auth:LocknChargeAuth   = LocknChargeAuth(api_url, client_id, client_secret)
         self.token:str              = self.auth.get_token()
-
 
     def get_connection_status(self):
         # we can get alot of info from this call: id, name connected, firmwareVersion, update, lockdown, tags, nodeId
