@@ -2,6 +2,7 @@ import os
 import logging
 from dotenv import load_dotenv
 from lockncharge_api.api import LocknChargeAPI
+from lockncharge_api.utils import save_json, load_json
 
 LOG_FILE_NAME = 'app.log'
 
@@ -29,6 +30,7 @@ def main():
     print("==== ASSIGNED BAYS ===")
     print(assigned_bays)
     current_user = api.get_current_users(assigned_bays)
+    save_json(current_user, "current_user.json")
     print("==== USERS ===")
     print(current_user)
     # logger.info(f"[MAIN] Connection status: {status}")

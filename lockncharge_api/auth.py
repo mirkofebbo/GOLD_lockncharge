@@ -1,8 +1,8 @@
 import requests
 import time
-import json
 import logging
 from datetime import datetime
+from .utils import save_json, load_json
 
 LOG_FILE_NAME = 'app.log'
 
@@ -21,35 +21,24 @@ class LocknChargeAuth:
         self.id:str  = client_id
         self.secret:str  = client_secret
 
-        try:
-            self.token_data:dict = self.load_local_token()
-        except Exception as e:
-            logger.error(f"[AUTH] Error loading local token: {e}")
+        file_path = "data/token.json"
+        self.token_data:dict = load_json(file_path)
+
+        if not bool(self.token_data):
+            logger.debug(f"[AUTH] No local token")
             self.token_data:dict = {"access_token": None, "expires": None}
+        
         try:    
             if not self.check_token_expiry():
                 self.token_data:dict = self.api_get_token()
-                self.save_token()
+                file_name:str = "token.json"
+                save_json(self.token_data, file_name)
+
+
         except Exception as e:
             logger.error(f"[AUTH] Error getting token from API: {e}")
         
         logger.debug(f"[AUTH] Token expires: {datetime.fromtimestamp(self.token_data['expires'])}")
-
-    def load_local_token(self):
-        file_path:str = "./data/token.json"
-
-        try:
-            # Check if the file exists + load
-            logger.debug("[AUTH] Loading local token.")
-            with open(file_path, 'r') as file:
-                data:dict = json.load(file)
-        except FileNotFoundError:
-            # else create an empty file
-            data:dict = {"access_token": None, "expires": None}
-            with open(file_path, 'w') as file:
-                json.dump(data, file)
-            logger.debug("[AUTH] Local File created")
-        return data
 
     def check_token_expiry(self):
 
@@ -61,13 +50,6 @@ class LocknChargeAuth:
             return False
         else:
             return True
-        
-    def save_token(self):
-        file_path:str = "data/token.json"
-        
-        with open(file_path, 'w') as file:
-            json.dump(self.token_data, file)
-
 
     def api_get_token(self):  
         url:str = self.url + "token"
@@ -86,6 +68,7 @@ class LocknChargeAuth:
         if not self.check_token_expiry():
             print("Token expired or not found, fetching new token...")
             self.token_data = self.get_token()
-            self.save_token()
+            file_name:str = "token.json"
+            save_json(self.token_data, file_name)
         
         return self.token_data["access_token"]
