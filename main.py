@@ -24,7 +24,9 @@ api = LocknChargeAPI(LOCKNCHARGE_URL, LOCKNCHARGE_ID, LOCKNCHARGE_CLIENT_ID, LOC
 def main():
 
     status:bool = api.get_connection_status()
-    
+    bays:dict = api.get_bays()
+    api.get_assigned_bay(bays)
+    # print(bays)
     logger.info(f"[MAIN] Connection status: {status}")
     
 if __name__ == "__main__":
