@@ -26,8 +26,12 @@ def main():
     status:bool = api.get_connection_status()
     bays:dict = api.get_bays()
     assigned_bays = api.get_assigned_bays(bays)
+    print("==== ASSIGNED BAYS ===")
     print(assigned_bays)
-    logger.info(f"[MAIN] Connection status: {status}")
+    current_user = api.get_current_users(assigned_bays)
+    print("==== USERS ===")
+    print(current_user)
+    # logger.info(f"[MAIN] Connection status: {status}")
     
 if __name__ == "__main__":
     main()

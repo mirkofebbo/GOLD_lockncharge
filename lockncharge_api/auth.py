@@ -89,4 +89,3 @@ class LocknChargeAuth:
             self.save_token()
         
         return self.token_data["access_token"]
-

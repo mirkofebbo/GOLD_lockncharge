@@ -20,6 +20,50 @@ class LocknChargeAPI:
         self.auth:LocknChargeAuth   = LocknChargeAuth(api_url, client_id, client_secret)
         self.token:str              = self.auth.get_token()
 
+    #==== FUNCTION TO MOVE ====
+    def get_assigned_bays(self, bays:dict):
+        """ BAY JSON EXEMPLE
+            {
+                "id": "S-70:b3:d5: 8f: 92:ff-00000000898cee65_B-1", 
+                "bayNumber": 1, 
+                "stationId": "S-70:b3:d5: 8f: 92:ff-00000000898cee65", 
+                "name": "Bay 1", 
+                "locked": True, 
+                "offline": False, 
+                "assigned": False, 
+                "assignedUserId": None, 
+                "tags": ["macbook"]
+            },
+        """
+        assigned_bays:list = []
+         
+        for bay in bays["items"]:
+            if bay["assigned"]:
+                assigned_bays.append(bay)
+
+        return assigned_bays 
+    
+    def get_current_users(self, assigned_bays:list):
+
+        current_users = []
+        user = {
+            "name": "",
+            "id": "",
+            "bay_id": "",
+
+        }
+        for bay in assigned_bays:
+            
+            user_id = bay["assignedUserId"]
+            user_info = self.get_user(user_id)
+            user["name"] = user_info["name"]
+            user["id"] = user_id
+            user["bay_id"] = bay["id"]
+
+            current_users.append(user)
+        return current_users
+        
+    #==== API CALS ====
     def get_connection_status(self):
         # we can get alot of info from this call: id, name connected, firmwareVersion, update, lockdown, tags, nodeId
         # But we are only interested to know if the locker is connected.
@@ -45,26 +89,17 @@ class LocknChargeAPI:
         data:dict = response.json()
         
         return data
-    
-    def get_assigned_bays(self, bays:dict):
-        """ BAY JSON EXEMPLE
-            {
-                "id": "S-70:b3:d5: 8f: 92:ff-00000000898cee65_B-1", 
-                "bayNumber": 1, 
-                "stationId": "S-70:b3:d5: 8f: 92:ff-00000000898cee65", 
-                "name": "Bay 1", 
-                "locked": True, 
-                "offline": False, 
-                "assigned": False, 
-                "assignedUserId": None, 
-                "tags": ["macbook"]
-            },
-        """
-        assigned_bays:list = []
+
+    def get_user(self, user_id: str):
+
+        url:str = f'{self.url}station-users/{user_id}'
+        headers:dict = {
+            'Accept': 'application/json',
+            'Authorization': f"Bearer {self.token}"
+        }
+
+        response:requests.Response = requests.get(url, headers=headers)
+        data:dict = response.json()
         
-        for bay in bays["items"]:
-            if bay["assigned"]:
-                assigned_bays.append(bay)
-                   
-        return assigned_bays
+        return data
 
