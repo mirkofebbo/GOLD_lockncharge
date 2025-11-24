@@ -1,6 +1,4 @@
 import requests
-import time
-from datetime import datetime
 import logging
 from lockncharge_api.auth import LocknChargeAuth
 
@@ -48,20 +46,19 @@ class LocknChargeAPI:
     def get_current_users(self, assigned_bays:list):
 
         current_users = []
+        user = {
+            "name": "",
+            "id": "",
+            "bay_id": "",
 
+        }
         for bay in assigned_bays:
+            
             user_id = bay["assignedUserId"]
             user_info = self.get_user(user_id)
-        
-            user = {
-                "name": user_info["name"],
-                "id": user_id,
-                "bay_id": bay["id"],
-                "assigned_time_utc": time.time(),
-                "assigned_time_human": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                "returned_time_utc": "",
-                "returned_time_human": ""
-            }
+            user["name"] = user_info["name"]
+            user["id"] = user_id
+            user["bay_id"] = bay["id"]
 
             current_users.append(user)
         return current_users
