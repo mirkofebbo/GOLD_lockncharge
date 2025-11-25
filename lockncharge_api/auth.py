@@ -21,9 +21,9 @@ class LocknChargeAuth:
         self.id:str  = client_id
         self.secret:str  = client_secret
 
-        file_path = "data/token.json"
+        file_path = "./data/token.json"
         self.token_data:dict = load_json(file_path)
-
+        
         if not bool(self.token_data):
             logger.debug(f"[AUTH] No local token")
             self.token_data:dict = {"access_token": None, "expires": None}
