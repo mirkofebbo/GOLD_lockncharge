@@ -1,5 +1,5 @@
 .env
 data/token.json
+data/current_user.json
 app.log
 __pycache__
-
