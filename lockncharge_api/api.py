@@ -39,7 +39,7 @@ class LocknChargeAPI:
             },
         """
         assigned_bays:list = []
-         
+        print(bays)
         for bay in bays["items"]:
             if bay["assigned"]:
                 assigned_bays.append(bay)
@@ -47,7 +47,7 @@ class LocknChargeAPI:
         return assigned_bays 
     
     def get_current_users(self, assigned_bays:list):
-
+        # Using the assignedUserId we can extract the user info
         current_users = []
     
         for bay in assigned_bays:
@@ -57,7 +57,7 @@ class LocknChargeAPI:
             user = {
                     "name": user_info["name"],
                     "id": user_id,
-                    "bay_id": bay["id"],
+                    "bay_bayNumber": bay["bayNumber"],
                     "assigned_time_utc": time.time(),
                     "assigned_time_human": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                     "returned_time_utc": "",
