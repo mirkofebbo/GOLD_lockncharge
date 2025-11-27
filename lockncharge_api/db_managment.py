@@ -1,13 +1,4 @@
-import mysql.connector
-import os
-from dotenv import load_dotenv
-load_dotenv()
+import sqlite3
 
-DB_PASSWORD = os.getenv("DB_PASSWORD")
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password=DB_PASSWORD
-)
-
-print(mydb)
+conn = sqlite3.connect('./data/example.db')  # Creates a new database file if it doesn’t exist
+cursor = conn.cursor()
