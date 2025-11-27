@@ -13,7 +13,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 def save_json(data:dict, file_name:str):
-    file_path:str = f"data/{file_name}"
+    file_path:str = f"./data/{file_name}"
     
     with open(file_path, 'w') as file:
         json.dump(data, file)
@@ -23,14 +23,18 @@ def save_json(data:dict, file_name:str):
 
 def load_json(file_path):
 
+    data:dict = {}
     try:
         # Check if the file exists + load
         logger.debug(f"[UTIL] Loading Json: {file_path}")
         with open(file_path, 'r') as file:
-            data:dict = json.load(file)
+            data = json.load(file)
+
     except FileNotFoundError:
         # else create an empty file
-        data:dict = {}
+        data =  {"access_token": None, "expires": None}
         with open(file_path, 'w') as file:
             json.dump(data, file)
         logger.debug(f"[UTIL] Creating Json: {file_path}")
+    
+    return data

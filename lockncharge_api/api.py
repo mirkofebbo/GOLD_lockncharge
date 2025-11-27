@@ -1,7 +1,8 @@
 import requests
+import logging
 import time
 from datetime import datetime
-import logging
+
 from lockncharge_api.auth import LocknChargeAuth
 
 LOG_FILE_NAME = 'app.log'
@@ -38,7 +39,7 @@ class LocknChargeAPI:
             },
         """
         assigned_bays:list = []
-         
+        print(bays)
         for bay in bays["items"]:
             if bay["assigned"]:
                 assigned_bays.append(bay)
@@ -46,23 +47,22 @@ class LocknChargeAPI:
         return assigned_bays 
     
     def get_current_users(self, assigned_bays:list):
-
+        # Using the assignedUserId we can extract the user info
         current_users = []
-
+    
         for bay in assigned_bays:
+            
             user_id = bay["assignedUserId"]
             user_info = self.get_user(user_id)
-        
             user = {
-                "name": user_info["name"],
-                "id": user_id,
-                "bay_id": bay["id"],
-                "assigned_time_utc": time.time(),
-                "assigned_time_human": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                "returned_time_utc": "",
-                "returned_time_human": ""
-            }
-
+                    "name": user_info["name"],
+                    "id": user_id,
+                    "bay_bayNumber": bay["bayNumber"],
+                    "assigned_time_utc": time.time(),
+                    "assigned_time_human": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    "returned_time_utc": "",
+                    "returned_time_human": ""
+                }
             current_users.append(user)
         return current_users
         
