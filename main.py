@@ -30,6 +30,8 @@ def main():
     # add a check 
     status:bool = api.get_connection_status()
     bays:dict = api.get_bays()
+    sorted_bays = sorted(bays["items"], key=lambda x: x['bayNumber'])
+    save_json(sorted_bays, "bays.json")
     assigned_bays = api.get_assigned_bays(bays)
 
     # for i in assigned_bays:
