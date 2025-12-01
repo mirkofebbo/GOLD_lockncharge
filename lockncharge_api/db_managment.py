@@ -50,11 +50,21 @@ class DatabaseManager:
             logger.error(f"[DB] Database error: {e}")
             return None
         
-    # ==== DATA PARSING METHODS =====
+    # ==== DATA METHODS =====
     def add_entry(self, table_name: str, data: dict):  
+        
         keys = ', '.join(data.keys())
         question_marks = ', '.join(['?'] * len(data))
         values = tuple(data.values())
         query = f"INSERT INTO {table_name} ({keys}) VALUES ({question_marks})"
         self.execute_query(query, values)
         logger.info(f"[DB] Entry added to '{table_name}': {data}")
+
+    def check_entry_exists(self, table_name: str, data: dict) -> bool:
+        # Check entry that matches user_id and returned_time_utc is NULL
+        query = f"SELECT 1 FROM {table_name} WHERE user_id = ? AND bay_number = ?"
+        results = self.execute_query(query, (data['user_id'], data['bay_number']))  
+        print(results)
+        exists = len(results) > 0
+        logger.info(f"[DB] Entry exists check in '{table_name}' for user_id '{data['user_id']}' and bay_number '{data['bay_number']}': {exists}")
+        return exists

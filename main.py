@@ -36,16 +36,24 @@ def main():
     sorted_bays = sorted(bays["items"], key=lambda x: x['bayNumber'])
     save_json(sorted_bays, "bays.json")
     assigned_bays = api.get_assigned_bays(bays)
-    database_manager.add_entry("RHB115", assigned_bays[0])
+    current_user = api.get_current_users(assigned_bays)
+    # database_manager.add_entry("RHB115", assigned_bays[0])
     # for i in assigned_bays:
     #     print(bay["id"])
     
 
-    print("==== ASSIGNED BAYS ===")
-    # print(assigned_bays)
+    print("==== CURRENT USERS ===")
+    print(current_user)
+
+    # database_manager.check_entry_exists("RHB115", "user123", "bay_number")
+    # add user to DB 
+    for user in current_user:
+        # database_manager.check_entry_exists("RHB115", user)
+        database_manager.add_entry("RHB115", user)
+
     # current_user = api.get_current_users(assigned_bays)
     
-    # save_json(current_user, "current_user.json")
+    save_json(current_user, "current_user.json")
     # print("==== USERS ===")
     # print(current_user)
     # logger.info(f"[MAIN] Connection status: {status}")
