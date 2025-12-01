@@ -3,6 +3,7 @@ import logging
 from dotenv import load_dotenv
 from lockncharge_api.api import LocknChargeAPI
 from lockncharge_api.utils import save_json, load_json
+from lockncharge_api.db_managment import DatabaseManager
 
 LOG_FILE_NAME = 'app.log'
 
@@ -22,6 +23,8 @@ LOCKNCHARGE_CLIENT_ID       = os.getenv("LOCKNCHARGE_CLIENT_ID")
 LOCKNCHARGE_CLIENT_SECRET   = os.getenv("LOCKNCHARGE_CLIENT_SECRET")
 
 api = LocknChargeAPI(LOCKNCHARGE_URL, LOCKNCHARGE_ID, LOCKNCHARGE_CLIENT_ID, LOCKNCHARGE_CLIENT_SECRET)
+database_manager = DatabaseManager('./data/example.db')
+
 def main():
 
     # load previous user data
@@ -33,7 +36,7 @@ def main():
     sorted_bays = sorted(bays["items"], key=lambda x: x['bayNumber'])
     save_json(sorted_bays, "bays.json")
     assigned_bays = api.get_assigned_bays(bays)
-
+    database_manager.add_entry("RHB115", assigned_bays[0])
     # for i in assigned_bays:
     #     print(bay["id"])
     
