@@ -68,3 +68,17 @@ class DatabaseManager:
         exists = len(results) > 0
         logger.info(f"[DB] Entry exists check in '{table_name}' for user_id '{data['user_id']}' and bay_number '{data['bay_number']}': {exists}")
         return exists
+    
+    def update_return_time(self, table_name: str, data: dict):
+        # Update returned_time_utc and returned_time_human for specific user_id and bay_number
+        query = f"UPDATE {table_name} SET returned_time_utc = ?, returned_time_human = ? WHERE user_id = ? AND bay_number = ?"
+        values = (data['returned_time_utc'], data['returned_time_human'], data['user_id'], data['bay_number'])
+        self.execute_query(query, values)
+        logger.info(f"[DB] Entry updated in '{table_name}' for user_id '{data['user_id']}' and bay_number '{data['bay_number']}': {data}")
+    
+    def get_all_current_bookings(self, table_name: str):
+        # Get all entries where returned_time_utc is NULL
+        query = f"SELECT * FROM {table_name} WHERE returned_time_utc IS 'NULL'"
+        results = self.execute_query(query)
+        logger.info(f"[DB] Retrieved all current bookings from '{table_name}': {results}")
+        return results
