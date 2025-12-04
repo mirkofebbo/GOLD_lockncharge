@@ -1,5 +1,9 @@
 .env
 data/token.json
 data/current_user.json
+data/example.db
+data/bays.json
+data/
 app.log
 __pycache__
+

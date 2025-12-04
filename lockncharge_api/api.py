@@ -55,9 +55,9 @@ class LocknChargeAPI:
             user_id = bay["assignedUserId"]
             user_info = self.get_user(user_id)
             user = {
-                    "name": user_info["name"],
-                    "id": user_id,
-                    "bay_bayNumber": bay["bayNumber"],
+                    "username": user_info["name"],
+                    "user_id": user_id,
+                    "bay_number": bay["bayNumber"],
                     "assigned_time_utc": time.time(),
                     "assigned_time_human": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                     "returned_time_utc": "",
