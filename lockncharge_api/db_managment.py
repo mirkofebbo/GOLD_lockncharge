@@ -52,6 +52,7 @@ class DatabaseManager:
         
     # ==== DATA PARSING METHODS =====
     def add_entry(self, table_name: str, data: dict):  
+        print(f"[db_managment]: {data}")
         keys = ', '.join(data.keys())
         question_marks = ', '.join(['?'] * len(data))
         values = tuple(data.values())

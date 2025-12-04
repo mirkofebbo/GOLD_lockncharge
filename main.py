@@ -36,7 +36,8 @@ def main():
     sorted_bays = sorted(bays["items"], key=lambda x: x['bayNumber'])
     save_json(sorted_bays, "bays.json")
     assigned_bays = api.get_assigned_bays(bays)
-    database_manager.add_entry("RHB115", assigned_bays[0])
+    assigned_users = api.get_current_users(assigned_bays)
+    database_manager.add_entry("RHB115", assigned_users[0])
     # for i in assigned_bays:
     #     print(bay["id"])
     
