@@ -55,7 +55,7 @@ class DatabaseManager:
         
         keys = ', '.join(data.keys())
         question_marks = ', '.join(['?'] * len(data))
-        values = tuple(data.values())
+        values = tuple(data.val ues())
         query = f"INSERT INTO {table_name} ({keys}) VALUES ({question_marks})"
         self.execute_query(query, values)
         logger.info(f"[DB] Entry added to '{table_name}': {data}")
