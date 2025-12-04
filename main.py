@@ -1,3 +1,5 @@
+from datetime import datetime
+import time
 import os   
 import logging
 from dotenv import load_dotenv
@@ -36,17 +38,43 @@ def main():
     sorted_bays = sorted(bays["items"], key=lambda x: x['bayNumber'])
     save_json(sorted_bays, "bays.json")
     assigned_bays = api.get_assigned_bays(bays)
-    assigned_users = api.get_current_users(assigned_bays)
-    database_manager.add_entry("RHB115", assigned_users[0])
+    current_user = api.get_current_users(assigned_bays)
+    current_bookings = database_manager.get_all_current_bookings("RHB115")
+    print("==== CURRENT BOOKINGS ===")
+    print(current_bookings)
+
+    # database_manager.add_entry("RHB115", assigned_bays[0])
     # for i in assigned_bays:
     #     print(bay["id"])
     
 
-    print("==== ASSIGNED BAYS ===")
-    # print(assigned_bays)
+    print("==== CURRENT USERS ===")
+    print(current_user)
+
+    # database_manager.check_entry_exists("RHB115", "user123", "bay_number")
+    # add user to DB 
+    
+    # Add new users (only if not already in DB)
+    for user in current_user:
+        if not database_manager.check_entry_exists("RHB115", user):
+            database_manager.add_entry("RHB115", user)
+
+    # Update return times for users no longer assigned
+    for booking in current_bookings:
+        if booking not in current_user:
+            update_data:dict = {
+                "username": booking[0],
+                "user_id": booking[1],
+                "bay_number": booking[2],
+                "assigned_time_utc": booking[3],
+                "assigned_time_human": booking[4],
+                "returned_time_utc": time.time(),
+                "returned_time_human": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            }
+            database_manager.update_return_time("RHB115", update_data)
     # current_user = api.get_current_users(assigned_bays)
     
-    # save_json(current_user, "current_user.json")
+    save_json(current_user, "current_user.json")
     # print("==== USERS ===")
     # print(current_user)
     # logger.info(f"[MAIN] Connection status: {status}")
