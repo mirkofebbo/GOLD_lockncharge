@@ -27,6 +27,7 @@ database_manager = DatabaseManager('./data/example.db')
 
 app = Flask(__name__)
 table_name:str = "RHB115"
+api = LocknChargeAPI(LOCKNCHARGE_URL, LOCKNCHARGE_ID, LOCKNCHARGE_CLIENT_ID, LOCKNCHARGE_CLIENT_SECRET)
 
 @app.route('/', methods=['GET'])
 def index():
@@ -59,7 +60,7 @@ def lcn_webhook():
             timestamp:str = payload["timestamp"]
             database_manager.update_entry_from_bay(table_name, bay, timestamp)
             print("BAY_CREDS_CLEARED")
-            
+
         case "BAY_CLOSED":
             # Bay {bay} closed on station {station}.
             print("BAY_CLOSED")
@@ -77,4 +78,5 @@ def lcn_webhook():
 
 
 if __name__ == "__main__":
+
     app.run(host="0.0.0.0", port=8000, debug=1)

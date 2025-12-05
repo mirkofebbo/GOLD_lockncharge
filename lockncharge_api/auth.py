@@ -26,8 +26,9 @@ class LocknChargeAuth:
         
         if not bool(self.token_data):
             logger.debug(f"[AUTH] No local token")
-            self.token_data:dict = {"access_token": None, "expires": None}
-        
+            self.token_data:dict = self.api_get_token()
+            save_json(self.token_data, file_name)
+
         try:    
             if not self.check_token_expiry():
                 self.token_data:dict = self.api_get_token()
