@@ -1,0 +1,351 @@
+[
+    {
+        "data": {
+            "bay": 6,
+            "bayId": "S-70:b3:d5:8f:92:ff-00000000898cee65_B-6",
+            "bayName": "Bay 6",
+            "stationId": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+            "bayTags": [
+                "macbook"
+            ],
+            "stationName": "Department of Computing - RHB115",
+            "user": {
+                "id": "3e410120-6c9a-40b1-a16c-69a15cb9e85e"
+            }
+        },
+        "origin": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+        "timestamp": "2025-12-05T10:11:06.270Z",
+        "type": "BAY_CREDS_CLEARED",
+        "userType": "ADMIN"
+    },
+    {
+        "data": {
+            "bay": 6,
+            "bayId": "S-70:b3:d5:8f:92:ff-00000000898cee65_B-6",
+            "bayName": "Bay 6",
+            "stationId": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+            "bayTags": [
+                "macbook"
+            ],
+            "stationName": "Department of Computing - RHB115",
+            "user": {
+                "id": "3e410120-6c9a-40b1-a16c-69a15cb9e85e"
+            }
+        },
+        "origin": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+        "timestamp": "2025-12-05T10:11:15.773Z",
+        "type": "BAY_CREDS_CACHED",
+        "userType": "ADMIN"
+    },
+    {
+        "data": {
+            "bay": 6,
+            "bayId": "S-70:b3:d5:8f:92:ff-00000000898cee65_B-6",
+            "bayName": "Bay 6",
+            "stationId": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+            "bayTags": [
+                "macbook"
+            ],
+            "stationName": "Department of Computing - RHB115",
+            "user": {
+                "id": "3e410120-6c9a-40b1-a16c-69a15cb9e85e"
+            }
+        },
+        "origin": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+        "timestamp": "2025-12-05T10:13:53.857Z",
+        "type": "BAY_CREDS_CLEARED",
+        "userType": "ADMIN"
+    },
+    {
+        "data": {
+            "bay": 6,
+            "bayId": "S-70:b3:d5:8f:92:ff-00000000898cee65_B-6",
+            "bayName": "Bay 6",
+            "stationId": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+            "bayTags": [
+                "macbook"
+            ],
+            "stationName": "Department of Computing - RHB115",
+            "user": {
+                "id": "3e410120-6c9a-40b1-a16c-69a15cb9e85e"
+            }
+        },
+        "origin": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+        "timestamp": "2025-12-05T10:16:54.951Z",
+        "type": "BAY_CREDS_CACHED",
+        "userType": "ADMIN"
+    },
+    {
+        "data": {
+            "bay": 6,
+            "bayId": "S-70:b3:d5:8f:92:ff-00000000898cee65_B-6",
+            "bayName": "Bay 6",
+            "stationId": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+            "bayTags": [
+                "macbook"
+            ],
+            "stationName": "Department of Computing - RHB115",
+            "user": {
+                "id": "3e410120-6c9a-40b1-a16c-69a15cb9e85e"
+            }
+        },
+        "origin": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+        "timestamp": "2025-12-05T10:17:30.470Z",
+        "type": "BAY_CREDS_CLEARED",
+        "userType": "ADMIN"
+    },
+    {
+        "data": {
+            "bay": 7,
+            "bayId": "S-70:b3:d5:8f:92:ff-00000000898cee65_B-7",
+            "bayName": "Bay 7",
+            "stationId": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+            "bayTags": [
+                "macbook"
+            ],
+            "stationName": "Department of Computing - RHB115",
+            "user": {
+                "id": "stationUser-f107b8c7-df72-417b-84f8-7de61b82ea0f",
+                "name": "UCL",
+                "tags": []
+            }
+        },
+        "origin": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+        "timestamp": "2025-12-05T10:26:32.057Z",
+        "type": "BAY_CREDS_CLEARED",
+        "userType": "USER"
+    },
+    {
+        "data": {
+            "bay": 7,
+            "bayId": "S-70:b3:d5:8f:92:ff-00000000898cee65_B-7",
+            "bayName": "Bay 7",
+            "stationId": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+            "bayTags": [
+                "macbook"
+            ],
+            "stationName": "Department of Computing - RHB115"
+        },
+        "origin": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+        "timestamp": "2025-12-05T10:26:35.360Z",
+        "type": "BAY_CLOSED",
+        "userType": "SYSTEM"
+    },
+    {
+        "data": {
+            "bay": 8,
+            "bayId": "S-70:b3:d5:8f:92:ff-00000000898cee65_B-8",
+            "bayName": "Bay 8",
+            "stationId": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+            "bayTags": [
+                "macbook"
+            ],
+            "stationName": "Department of Computing - RHB115",
+            "user": {
+                "id": "stationUser-1cf1129a-248b-4393-9a56-64a6a15d36c4",
+                "name": "mfebb002",
+                "tags": []
+            }
+        },
+        "origin": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+        "timestamp": "2025-12-05T10:26:40.819Z",
+        "type": "BAY_CREDS_CLEARED",
+        "userType": "USER"
+    },
+    {
+        "data": {
+            "bay": 8,
+            "bayId": "S-70:b3:d5:8f:92:ff-00000000898cee65_B-8",
+            "bayName": "Bay 8",
+            "stationId": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+            "bayTags": [
+                "macbook"
+            ],
+            "stationName": "Department of Computing - RHB115"
+        },
+        "origin": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+        "timestamp": "2025-12-05T10:26:43.667Z",
+        "type": "BAY_CLOSED",
+        "userType": "SYSTEM"
+    },
+    {
+        "data": {
+            "bay": 1,
+            "bayId": "S-70:b3:d5:8f:92:ff-00000000898cee65_B-1",
+            "bayName": "Bay 1",
+            "stationId": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+            "bayTags": [
+                "macbook"
+            ],
+            "stationName": "Department of Computing - RHB115"
+        },
+        "origin": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+        "timestamp": "2025-12-05T10:26:55.182Z",
+        "type": "BAY_TMPBAN",
+        "userType": "SYSTEM"
+    },
+    {
+        "data": {
+            "bay": 3,
+            "bayId": "S-70:b3:d5:8f:92:ff-00000000898cee65_B-3",
+            "bayName": "Bay 3",
+            "stationId": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+            "bayTags": [
+                "macbook"
+            ],
+            "stationName": "Department of Computing - RHB115",
+            "user": {
+                "id": "stationUser-f107b8c7-df72-417b-84f8-7de61b82ea0f",
+                "name": "UCL",
+                "tags": []
+            }
+        },
+        "origin": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+        "timestamp": "2025-12-05T10:27:03.091Z",
+        "type": "BAY_CREDS_CACHED",
+        "userType": "USER"
+    },
+    {
+        "data": {
+            "bay": 3,
+            "bayId": "S-70:b3:d5:8f:92:ff-00000000898cee65_B-3",
+            "bayName": "Bay 3",
+            "stationId": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+            "bayTags": [
+                "macbook"
+            ],
+            "stationName": "Department of Computing - RHB115"
+        },
+        "origin": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+        "timestamp": "2025-12-05T10:27:06.515Z",
+        "type": "BAY_CLOSED",
+        "userType": "SYSTEM"
+    },
+    {
+        "data": {
+            "bay": 4,
+            "bayId": "S-70:b3:d5:8f:92:ff-00000000898cee65_B-4",
+            "bayName": "Bay 4",
+            "stationId": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+            "bayTags": [
+                "macbook"
+            ],
+            "stationName": "Department of Computing - RHB115",
+            "user": {
+                "id": "stationUser-1cf1129a-248b-4393-9a56-64a6a15d36c4",
+                "name": "mfebb002",
+                "tags": []
+            }
+        },
+        "origin": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+        "timestamp": "2025-12-05T10:27:16.355Z",
+        "type": "BAY_CREDS_CACHED",
+        "userType": "USER"
+    },
+    {
+        "data": {
+            "bay": 4,
+            "bayId": "S-70:b3:d5:8f:92:ff-00000000898cee65_B-4",
+            "bayName": "Bay 4",
+            "stationId": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+            "bayTags": [
+                "macbook"
+            ],
+            "stationName": "Department of Computing - RHB115"
+        },
+        "origin": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+        "timestamp": "2025-12-05T10:27:19.632Z",
+        "type": "BAY_CLOSED",
+        "userType": "SYSTEM"
+    },
+    {
+        "data": {
+            "bay": 5,
+            "bayId": "S-70:b3:d5:8f:92:ff-00000000898cee65_B-5",
+            "bayName": "Bay 5",
+            "stationId": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+            "bayTags": [
+                "macbook"
+            ],
+            "stationName": "Department of Computing - RHB115",
+            "user": {
+                "id": "stationUser-1cf1129a-248b-4393-9a56-64a6a15d36c4",
+                "name": "mfebb002",
+                "tags": []
+            }
+        },
+        "origin": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+        "timestamp": "2025-12-05T10:27:47.828Z",
+        "type": "BAY_CREDS_CACHED",
+        "userType": "USER"
+    },
+    {
+        "data": {
+            "bay": 5,
+            "bayId": "S-70:b3:d5:8f:92:ff-00000000898cee65_B-5",
+            "bayName": "Bay 5",
+            "stationId": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+            "bayTags": [
+                "macbook"
+            ],
+            "stationName": "Department of Computing - RHB115"
+        },
+        "origin": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+        "timestamp": "2025-12-05T10:27:56.475Z",
+        "type": "BAY_CLOSED",
+        "userType": "SYSTEM"
+    },
+    {
+        "data": {
+            "bay": 5,
+            "bayId": "S-70:b3:d5:8f:92:ff-00000000898cee65_B-5",
+            "bayName": "Bay 5",
+            "stationId": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+            "bayTags": [
+                "macbook"
+            ],
+            "stationName": "Department of Computing - RHB115"
+        },
+        "origin": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+        "timestamp": "2025-12-05T10:28:14.140Z",
+        "type": "BAY_TMPBAN",
+        "userType": "SYSTEM"
+    },
+    {
+        "data": {
+            "bay": 6,
+            "bayId": "S-70:b3:d5:8f:92:ff-00000000898cee65_B-6",
+            "bayName": "Bay 6",
+            "stationId": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+            "bayTags": [
+                "macbook"
+            ],
+            "stationName": "Department of Computing - RHB115",
+            "user": {
+                "id": "stationUser-1cf1129a-248b-4393-9a56-64a6a15d36c4",
+                "name": "mfebb002",
+                "tags": []
+            }
+        },
+        "origin": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+        "timestamp": "2025-12-05T10:28:43.529Z",
+        "type": "BAY_CREDS_CACHED",
+        "userType": "USER"
+    },
+    {
+        "data": {
+            "bay": 6,
+            "bayId": "S-70:b3:d5:8f:92:ff-00000000898cee65_B-6",
+            "bayName": "Bay 6",
+            "stationId": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+            "bayTags": [
+                "macbook"
+            ],
+            "stationName": "Department of Computing - RHB115"
+        },
+        "origin": "S-70:b3:d5:8f:92:ff-00000000898cee65",
+        "timestamp": "2025-12-05T10:28:46.930Z",
+        "type": "BAY_CLOSED",
+        "userType": "SYSTEM"
+    }
+]

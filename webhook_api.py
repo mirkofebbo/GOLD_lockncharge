@@ -23,7 +23,7 @@ LOCKNCHARGE_CLIENT_ID       = os.getenv("LOCKNCHARGE_CLIENT_ID")
 LOCKNCHARGE_CLIENT_SECRET   = os.getenv("LOCKNCHARGE_CLIENT_SECRET")
 
 # api = LocknChargeAPI(LOCKNCHARGE_URL, LOCKNCHARGE_ID, LOCKNCHARGE_CLIENT_ID, LOCKNCHARGE_CLIENT_SECRET)
-# database_manager = DatabaseManager('./data/example.db')
+database_manager = DatabaseManager('./data/example.db')
 
 app = Flask(__name__)
 
@@ -32,48 +32,38 @@ def index():
     """
     Go to localhost:5000 to see a message
     """
-    return ('This is a website.', 200, None)
+    return ('Ta mere la pute.', 200, None)
 
 
-@app.route("/lcn-webhook", methods=["POST"])
+@app.route("/webhook", methods=["POST"])
 def lcn_webhook():
     # Get JSON payload from LocknCharge webhook
-    payload = request.get_json(silent=True)
+    payload:dict = request.get_json(silent=True)
 
     print("=== Incoming LocknCharge Webhook ===")
     print(payload)
+    event_type:str = payload["type"] 
 
-    # TODO: Add your logic here
-    # e.g., save to a database, send an email, trigger another API, etc.
-
-    # Respond 200 OK so LocknCharge knows delivery succeeded
+    match event_type:
+        case "BAY_CREDS_CACHED":
+            # Bay {bay} reserved on station {station}
+            print("")
+        case "BAY_CREDS_CLEARED":
+            # Bay {bay} accessed on station {station}.
+            print("BAY_CREDS_CLEARED")
+        case "BAY_CLOSED":
+            # Bay {bay} closed on station {station}.
+            print("BAY_CLOSED")
+        case "BAY_STUCK":
+            # Bay {bay} stuck on station {station}.
+            print("BAY_STUCk")
+        case "BAY_BREACH":
+            # Bay {bay} breached on station {station}.
+            print("BAY_BREACH")
+        case "BAY_TMPBAN":
+            # Bay {bay} was locked out due to incorrect access attempts on station {station}.
+            print("BAY_TMPBAN")
     return jsonify({"status": "received"}), 200
-
-    # # --- HANDLE EVENTS ---
-    # if event_type == "bayAssigned":
-    #     user_id = event.get("assignedUserId")
-    #     bay_id = event.get("bayId")
-
-    #     user_info = api.get_user(user_id)
-
-    #     db.add_entry("RHB115", {
-    #         "username": user_info["name"],
-    #         "user_id": user_id,
-    #         "bay_number": bay_id,
-    #         "assigned_time_utc": event.get("time"),
-    #         "assigned_time_human": "",
-    #         "returned_time_utc": "",
-    #         "returned_time_human": ""
-    #     })
-
-    #     logging.info(f"User {user_id} assigned to {bay_id}")
-
-    # elif event_type == "bayUnassigned":
-    #     user_id = event.get("assignedUserId")
-    #     db.mark_returned(user_id)  # You will implement this
-    #     logging.info(f"User {user_id} returned laptop")
-
-    # return jsonify({"status": "ok"}), 200
 
 
 if __name__ == "__main__":
