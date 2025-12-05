@@ -69,17 +69,17 @@ class DatabaseManager:
     def add_entry(self, table_name: str, data: dict):  
 
         parsed_data:dict = self.new_data_parsing(data)
-        print(f"[db_managment]: {parsed_data}")
         keys = ', '.join(parsed_data.keys())
         question_marks = ', '.join(['?'] * len(parsed_data))
         values = tuple(parsed_data.values())
         query = f"INSERT INTO {table_name} ({keys}) VALUES ({question_marks})"
         self.execute_query(query, values)
-        logger.info(f"[DB] Entry added to '{table_name}': {parsed_data}")
+        logger.info(f"[DB] Entry booked'{table_name}|bay-{parsed_data["bay_number"]}, at {parsed_data["book_timestamp"]}")
+
 
     def update_entry_from_bay(self, table_name:str, bay: int, timestamp: str):
 
         query = f"UPDATE {table_name} SET return_timestamp = ? WHERE bay_number = ? AND return_timestamp = ''"
         values = (timestamp, bay)
         self.execute_query(query, values)
-        logger.info(f"[DB] Entry returned to {table_name}, bay-{bay}, at: {timestamp}") 
+        logger.info(f"[DB] Entry returned to {table_name}|bay-{bay}, at: {timestamp}") 

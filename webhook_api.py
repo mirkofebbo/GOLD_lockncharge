@@ -59,6 +59,7 @@ def lcn_webhook():
             timestamp:str = payload["timestamp"]
             database_manager.update_entry_from_bay(table_name, bay, timestamp)
             print("BAY_CREDS_CLEARED")
+            
         case "BAY_CLOSED":
             # Bay {bay} closed on station {station}.
             print("BAY_CLOSED")
@@ -71,6 +72,7 @@ def lcn_webhook():
         case "BAY_TMPBAN":
             # Bay {bay} was locked out due to incorrect access attempts on station {station}.
             print("BAY_TMPBAN")
+
     return jsonify({"status": "received"}), 200
 
 
