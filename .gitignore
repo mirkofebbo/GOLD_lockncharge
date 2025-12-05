@@ -3,7 +3,8 @@ data/token.json
 data/current_user.json
 data/example.db
 data/bays.json
-data/
+data
 app.log
 __pycache__
 
+data/example.db

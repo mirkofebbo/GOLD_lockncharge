@@ -50,35 +50,31 @@ class DatabaseManager:
             logger.error(f"[DB] Database error: {e}")
             return None
         
-    # ==== DATA METHODS =====
+   # ==== DATA PARSING METHODS =====
+    def new_data_parsing(self, data:dict):
+        formated_data = {
+            "user_id": data["data"]["user"]["id"],
+            "username": data["data"]["user"].get("name", data["userType"]) ,
+            "bay_number": data["data"]["bay"],
+            "book_timestamp": data["timestamp"],
+            "return_timestamp": ""
+        }
+        return formated_data
+    
     def add_entry(self, table_name: str, data: dict):  
-        
-        keys = ', '.join(data.keys())
-        question_marks = ', '.join(['?'] * len(data))
-        values = tuple(data.val ues())
+
+        parsed_data:dict = self.new_data_parsing(data)
+        keys = ', '.join(parsed_data.keys())
+        question_marks = ', '.join(['?'] * len(parsed_data))
+        values = tuple(parsed_data.values())
         query = f"INSERT INTO {table_name} ({keys}) VALUES ({question_marks})"
         self.execute_query(query, values)
-        logger.info(f"[DB] Entry added to '{table_name}': {data}")
+        logger.info(f"[DB] Entry booked'{table_name}|bay-{parsed_data["bay_number"]}, at {parsed_data["book_timestamp"]}")
 
-    def check_entry_exists(self, table_name: str, data: dict) -> bool:
-        # Check entry that matches user_id and returned_time_utc is NULL
-        query = f"SELECT 1 FROM {table_name} WHERE user_id = ? AND bay_number = ?"
-        results = self.execute_query(query, (data['user_id'], data['bay_number']))  
-        print(results)
-        exists = len(results) > 0
-        logger.info(f"[DB] Entry exists check in '{table_name}' for user_id '{data['user_id']}' and bay_number '{data['bay_number']}': {exists}")
-        return exists
-    
-    def update_return_time(self, table_name: str, data: dict):
-        # Update returned_time_utc and returned_time_human for specific user_id and bay_number
-        query = f"UPDATE {table_name} SET returned_time_utc = ?, returned_time_human = ? WHERE user_id = ? AND bay_number = ?"
-        values = (data['returned_time_utc'], data['returned_time_human'], data['user_id'], data['bay_number'])
+
+    def update_entry_from_bay(self, table_name:str, bay: int, timestamp: str):
+
+        query = f"UPDATE {table_name} SET return_timestamp = ? WHERE bay_number = ? AND return_timestamp = ''"
+        values = (timestamp, bay)
         self.execute_query(query, values)
-        logger.info(f"[DB] Entry updated in '{table_name}' for user_id '{data['user_id']}' and bay_number '{data['bay_number']}': {data}")
-    
-    def get_all_current_bookings(self, table_name: str):
-        # Get all entries where returned_time_utc is NULL
-        query = f"SELECT * FROM {table_name} WHERE returned_time_utc IS 'NULL'"
-        results = self.execute_query(query)
-        logger.info(f"[DB] Retrieved all current bookings from '{table_name}': {results}")
-        return results
+        logger.info(f"[DB] Entry returned to {table_name}|bay-{bay}, at: {timestamp}") 
