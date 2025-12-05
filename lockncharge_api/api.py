@@ -39,7 +39,6 @@ class LocknChargeAPI:
             },
         """
         assigned_bays:list = []
-        print(bays)
         for bay in bays["items"]:
             if bay["assigned"]:
                 assigned_bays.append(bay)
@@ -60,8 +59,8 @@ class LocknChargeAPI:
                     "bay_number": bay["bayNumber"],
                     "assigned_time_utc": time.time(),
                     "assigned_time_human": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                    "returned_time_utc": "",
-                    "returned_time_human": ""
+                    "returned_time_utc": "NULL",
+                    "returned_time_human": "NULL"
                 }
             current_users.append(user)
         return current_users

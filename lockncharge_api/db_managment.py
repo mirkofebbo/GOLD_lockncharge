@@ -50,12 +50,35 @@ class DatabaseManager:
             logger.error(f"[DB] Database error: {e}")
             return None
         
-    # ==== DATA PARSING METHODS =====
+    # ==== DATA METHODS =====
     def add_entry(self, table_name: str, data: dict):  
-        print(f"[db_managment]: {data}")
+        
         keys = ', '.join(data.keys())
         question_marks = ', '.join(['?'] * len(data))
-        values = tuple(data.values())
+        values = tuple(data.val ues())
         query = f"INSERT INTO {table_name} ({keys}) VALUES ({question_marks})"
         self.execute_query(query, values)
         logger.info(f"[DB] Entry added to '{table_name}': {data}")
+
+    def check_entry_exists(self, table_name: str, data: dict) -> bool:
+        # Check entry that matches user_id and returned_time_utc is NULL
+        query = f"SELECT 1 FROM {table_name} WHERE user_id = ? AND bay_number = ?"
+        results = self.execute_query(query, (data['user_id'], data['bay_number']))  
+        print(results)
+        exists = len(results) > 0
+        logger.info(f"[DB] Entry exists check in '{table_name}' for user_id '{data['user_id']}' and bay_number '{data['bay_number']}': {exists}")
+        return exists
+    
+    def update_return_time(self, table_name: str, data: dict):
+        # Update returned_time_utc and returned_time_human for specific user_id and bay_number
+        query = f"UPDATE {table_name} SET returned_time_utc = ?, returned_time_human = ? WHERE user_id = ? AND bay_number = ?"
+        values = (data['returned_time_utc'], data['returned_time_human'], data['user_id'], data['bay_number'])
+        self.execute_query(query, values)
+        logger.info(f"[DB] Entry updated in '{table_name}' for user_id '{data['user_id']}' and bay_number '{data['bay_number']}': {data}")
+    
+    def get_all_current_bookings(self, table_name: str):
+        # Get all entries where returned_time_utc is NULL
+        query = f"SELECT * FROM {table_name} WHERE returned_time_utc IS 'NULL'"
+        results = self.execute_query(query)
+        logger.info(f"[DB] Retrieved all current bookings from '{table_name}': {results}")
+        return results
