@@ -26,6 +26,7 @@ LOCKNCHARGE_CLIENT_SECRET   = os.getenv("LOCKNCHARGE_CLIENT_SECRET")
 database_manager = DatabaseManager('./data/example.db')
 
 app = Flask(__name__)
+table_name:str = "RHB115"
 
 @app.route('/', methods=['GET'])
 def index():
@@ -49,11 +50,14 @@ def lcn_webhook():
         case "BAY_CREDS_CACHED":
             # Bay {bay} reserved on station {station}
             if user_type == "USER" or "ADMIN":
-                database_manager.add_entry("RHB115", payload)
+                database_manager.add_entry(table_name, payload)
                 print(f"[webhook]: {payload}")
 
         case "BAY_CREDS_CLEARED":
-            # Bay {bay} accessed on station {station}.
+            # Bay {bay} accessed on station {station}
+            bay:int = payload["data"]["bay"]
+            timestamp:str = payload["timestamp"]
+            database_manager.update_entry_from_bay(table_name, bay, timestamp)
             print("BAY_CREDS_CLEARED")
         case "BAY_CLOSED":
             # Bay {bay} closed on station {station}.

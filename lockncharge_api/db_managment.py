@@ -76,3 +76,10 @@ class DatabaseManager:
         query = f"INSERT INTO {table_name} ({keys}) VALUES ({question_marks})"
         self.execute_query(query, values)
         logger.info(f"[DB] Entry added to '{table_name}': {parsed_data}")
+
+    def update_entry_from_bay(self, table_name:str, bay: int, timestamp: str):
+
+        query = f"UPDATE {table_name} SET return_timestamp = ? WHERE bay_number = ? AND return_timestamp = ''"
+        values = (timestamp, bay)
+        self.execute_query(query, values)
+        logger.info(f"[DB] Entry returned to {table_name}, bay-{bay}, at: {timestamp}") 
